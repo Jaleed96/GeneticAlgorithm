@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jay/CLionProjects/GeneticAlgorithm/city.hpp
+sstream
+-
+
+/home/jay/CLionProjects/GeneticAlgorithm/main.cpp
+iostream
+-
+tour.hpp
+/home/jay/CLionProjects/GeneticAlgorithm/tour.hpp
+sstream
+-
+vector
+-
+city.hpp
+/home/jay/CLionProjects/GeneticAlgorithm/city.hpp
+cmath
+-
+
+/home/jay/CLionProjects/GeneticAlgorithm/tour.hpp
+sstream
+-
+vector
+-
+city.hpp
+/home/jay/CLionProjects/GeneticAlgorithm/city.hpp
+
