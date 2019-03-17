@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/GeneticAlgorithm.dir/main.cpp.o CMakeFiles/GeneticAlgorithm.dir/city.cpp.o  -o GeneticAlgorithm 
