@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jay/CLionProjects/GeneticAlgorithm/city.cpp" "/home/jay/CLionProjects/GeneticAlgorithm/cmake-build-debug/CMakeFiles/GeneticAlgorithm.dir/city.cpp.o"
   "/home/jay/CLionProjects/GeneticAlgorithm/main.cpp" "/home/jay/CLionProjects/GeneticAlgorithm/cmake-build-debug/CMakeFiles/GeneticAlgorithm.dir/main.cpp.o"
+  "/home/jay/CLionProjects/GeneticAlgorithm/tour.cpp" "/home/jay/CLionProjects/GeneticAlgorithm/cmake-build-debug/CMakeFiles/GeneticAlgorithm.dir/tour.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

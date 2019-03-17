@@ -93,6 +93,12 @@
 		<Unit filename="/home/jay/CLionProjects/GeneticAlgorithm/main.cpp">
 			<Option target="GeneticAlgorithm"/>
 		</Unit>
+		<Unit filename="/home/jay/CLionProjects/GeneticAlgorithm/tour.cpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/home/jay/CLionProjects/GeneticAlgorithm/tour.hpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
 		<Unit filename="/home/jay/CLionProjects/GeneticAlgorithm/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
