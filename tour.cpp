@@ -12,10 +12,10 @@
 
 using namespace std;
 
-tour::tour(std::vector<city> listOfCities) : cityTour(listOfCities) {
+tour::tour(std::vector<city*> listOfCities) : cityTour(listOfCities) {
     fitnessRating = 1/(10*getTourDistance());
 }
-std::vector<city> tour::getTour() const { return cityTour; }
+std::vector<city*> tour::getTour() const { return cityTour; }
 
 double tour::getFitnessRating() const { return fitnessRating; }
 
@@ -26,14 +26,14 @@ double tour::getDistanceBetweenCities(city c1, city c2) const {
 double tour::getTourDistance() const {
     double distTravelled = 0.0;
     for (int i = 1; i<cityTour.size(); i++) {
-        distTravelled = distTravelled+getDistanceBetweenCities(cityTour[i-1], cityTour[i]);
+        distTravelled = distTravelled+getDistanceBetweenCities(*(cityTour[i-1]), *(cityTour[i]));
     }
     return distTravelled;
 }
 
 bool tour::containsCity(std::string cityName) {
-    for (city c : cityTour) {
-        if (c.getName() == cityName) {
+    for (city* c : cityTour) {
+        if ((*c).getName() == cityName) {
             return true;
         }
     }

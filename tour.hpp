@@ -11,12 +11,12 @@
 
 class tour {
 private:
-    std::vector<city> cityTour;
+    std::vector<city*> cityTour;
     double fitnessRating;
 public:
-    tour(std::vector<city> listOfCities);
+    tour(std::vector<city*> listOfCities);
 
-    std::vector<city> getTour() const;
+    std::vector<city*> getTour() const;
 
     double getFitnessRating() const;
 
@@ -27,6 +27,8 @@ public:
     double getDistanceBetweenCities(city c1, city c2) const;
 
     double getTourDistance() const;
+
+    void mutate(int mutationRate);
 };
 
 
