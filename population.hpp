@@ -26,6 +26,8 @@ public:
 
     tour selectParent(int poolSize);
 
+    void shuffleCities(tour& t);
+
 };
 
 

@@ -20,8 +20,6 @@ public:
 
     double getFitnessRating() const;
 
-    void shuffleCities();
-
     bool containsCity(std::string cityName);
 
     double getDistanceBetweenCities(city c1, city c2) const;
