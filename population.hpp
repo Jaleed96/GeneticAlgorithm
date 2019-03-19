@@ -26,7 +26,7 @@ public:
 
     tour selectParent(int poolSize);
 
-    void shuffleCities(tour& t);
+    void shuffleCities(std::vector<city*>& t);
 
 };
 
