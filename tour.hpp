@@ -20,13 +20,15 @@ public:
 
     double getFitnessRating() const;
 
+    void calculateFitness();
+
     bool containsCity(std::string cityName);
 
-    double getDistanceBetweenCities(city c1, city c2) const;
+    double getDistanceBetweenCities(city* c1, city* c2) const;
 
     double getTourDistance() const;
 
-    void mutate(int mutationRate);
+    void mutate();
 };
 
 

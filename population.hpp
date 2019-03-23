@@ -22,11 +22,13 @@ public:
 
     tour crossover(tour t1, tour t2);
 
-    tour crossover(tour t1, tour t2, tour t3);
-
-    tour selectParent(int poolSize);
+    std::pair<tour, tour> selectParent(int poolSize);
 
     void shuffleCities(std::vector<city*>& t);
+
+    void mutateTours();
+
+    std::vector<tour> getTours() const;
 
 };
 

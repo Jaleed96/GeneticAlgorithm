@@ -6,23 +6,33 @@
 #include <vector>
 #include "city.hpp"
 #include <cmath>
+#include <iostream>
 
 using namespace std;
+constexpr int IMPROVEMENT_FACTOR = 30;
+constexpr int ITERATIONS = 1000;
 
 int main() {
+    vector<string> cityNames {"Violetlight", "Linbourne", "Prybush", "Wyverntown", "Newcrest", "Redrose", "Deepway", "Fieldmont", "Moorley", "Fogbeach", "Westermarble", "Icemoor", "Waynesse", "Snowley", "Grassshore", "Winterview", "Coldgate", "Coldloch", "Raywyn", "Westermeadow", "Starrywinter", "Eriwick", "Lightston", "Dorwall", "Crystalham", "Icewheat", "Aldmarble", "Marblemont", "Stoneelf", "Starryhollow", "Cordale", "Crystalmallow"};
     vector<city> list;
-    city london{"Manchester", 0.0, 120.0};
-    city manchester{"London", 20.0, 180.0};
-    city liverpool{"Liverpool", 10.0, 60.0};
-    list.push_back(london);
-    list.push_back(liverpool);
-    list.push_back(manchester);
+    srand((int) time(0));
 
-    population basicTour{list};
-    cout<<(basicTour.determineElite())->getFitnessRating()<<endl;
-//    if (basicTour.containsCity("London")) {
-//        cout<<basicTour.getFitnessRating()<<endl;
-//    } else cout<<"no"<<endl;
+    for (int i = 0; i <cityNames.size(); i++) {
+        int x = rand()%1000;
+        int y = rand()%1000;
+        city temp{cityNames[i], x, y};
+        list.push_back(temp);
+    }
 
+    population middleEarth{list};
+
+
+//    population basicPop{list};
+//    cout<<(basicPop.determineElite())->getFitnessRating()<<endl;
+//    pair <tour, tour> p = basicPop.selectParent(6);
+//    cout<<basicPop.crossover(p.first, p.second).getFitnessRating()<<endl;
+//    cout<<basicPop.getTours()[1].getFitnessRating()<<endl;
+//    basicPop.mutateTours();
+//    cout<<basicPop.getTours()[1].getFitnessRating()<<endl;
     return 0;
 }

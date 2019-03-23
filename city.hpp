@@ -10,16 +10,16 @@
 class city {
 private:
     std::string name;
-    double x;
-    double y;
+    int x;
+    int y;
 public:
-    city(std::string name, double xCoord, double yCoord);
+    city(std::string name, int xCoord, int yCoord);
 
     std::string getName() const;
 
-    double getX() const;
+    int getX() const;
 
-    double getY() const;
+    int getY() const;
 
 };
 
