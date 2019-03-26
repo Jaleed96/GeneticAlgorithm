@@ -50,48 +50,55 @@ tour* population::determineElite() {
     return eliteTour;
 }
 
-pair<tour, tour> population::selectParent(int poolSize) {
-    vector<tour> parentPool;
+pair<tour*, tour*> population::selectParent(int poolSize) {
+    vector<tour*> parentPool;
     srand((int) time(0));
     for (int i = 0; i<PARENT_POOL_SIZE; i++) {
-        int index = rand()%29;
-        parentPool.push_back(listOfTours[index]);
+        int index = rand()%31;
+        parentPool.push_back(&(listOfTours[index]));
     }
-    tour parent1 = parentPool[0];
+    tour* parent1 = parentPool[0];
     for (int i = 1; i<parentPool.size(); i++) {
-        if (parentPool[i].getFitnessRating()<parent1.getFitnessRating()) {
+        if (parentPool[i]->getFitnessRating()<parent1->getFitnessRating()) {
             parent1 = parentPool[i];
         }
     }
     parentPool.clear();
     for (int i = 0; i<PARENT_POOL_SIZE; i++) {
         int index = rand()%29;
-        parentPool.push_back(listOfTours[index]);
+        parentPool.push_back(&(listOfTours[index]));
     }
-    tour parent2 = parentPool[0];
+    tour* parent2 = parentPool[0];
     for (int i = 1; i<parentPool.size(); i++) {
-        if (parentPool[i].getFitnessRating()<parent2.getFitnessRating()) {
+        if (parentPool[i]->getFitnessRating()<parent2->getFitnessRating()) {
             parent2 = parentPool[i];
         }
     }
-    pair<tour, tour> p (parent1, parent2);
+    pair<tour*, tour*> p (parent1, parent2);
     return p;
 }
 
-tour population::crossover(tour t1, tour t2) {
-    int index = rand()%CITIES_IN_TOUR;
-    vector<city*> newList;
-    for (int i = 0; i<index; i++) {
-        newList.push_back(t1.getTour()[i]);
-    }
-    for (int i = 0, citiesAdded=0; i<t2.getTour().size()&&citiesAdded<CITIES_IN_TOUR-index; i++) {
-        if (find(newList.begin(), newList.end(), t2.getTour()[i]) != newList.end()) {
-            newList.push_back(t2.getTour()[i]);
-            citiesAdded++;
+void population::crossover() {
+    for (int c = 1; c<32; c++) {
+        pair<tour*, tour*> parents = selectParent(PARENT_POOL_SIZE);
+        tour* t1 = parents.first;
+        tour* t2 = parents.second;
+        int index = rand()%CITIES_IN_TOUR;
+        vector<city*> newList;
+        vector<city*>* ptrToNewList = &newList;
+        for (int i = 0; i<index; i++) {
+            ptrToNewList->push_back((t1->getTour()[i]));
         }
+        for (int i = 0, citiesAdded=0; citiesAdded<CITIES_IN_TOUR-index; i++) {
+            if (!t1->containsCity(t2->getTour()[i]->getName(), ptrToNewList)) {
+                ptrToNewList->push_back(t2->getTour()[i]);
+                citiesAdded++;
+            }
+        }
+        tour t{ptrToNewList};
+        listOfTours[c] = t;
+        ptrToNewList->clear();
     }
-    tour t{newList};
-    return t;
 }
 
 std::vector<tour> population::getTours() const {

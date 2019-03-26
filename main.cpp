@@ -25,12 +25,22 @@ int main() {
     }
 
     population middleEarth{list};
+    tour* elite = middleEarth.determineElite();
+    double baseRating = elite->getFitnessRating();
+    int iterationsRan = 0;
 
+    while (elite->getFitnessRating()/baseRating < IMPROVEMENT_FACTOR && iterationsRan<ITERATIONS) {
+        elite = middleEarth.determineElite();
+        middleEarth.crossover();
+        middleEarth.mutateTours();
+        cout<<iterationsRan<<endl;
+        iterationsRan++;
+    }
 
 //    population basicPop{list};
 //    cout<<(basicPop.determineElite())->getFitnessRating()<<endl;
-//    pair <tour, tour> p = basicPop.selectParent(6);
-//    cout<<basicPop.crossover(p.first, p.second).getFitnessRating()<<endl;
+
+
 //    cout<<basicPop.getTours()[1].getFitnessRating()<<endl;
 //    basicPop.mutateTours();
 //    cout<<basicPop.getTours()[1].getFitnessRating()<<endl;

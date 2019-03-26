@@ -20,9 +20,9 @@ public:
 
     tour* determineElite();
 
-    tour crossover(tour t1, tour t2);
+    void crossover();
 
-    std::pair<tour, tour> selectParent(int poolSize);
+    std::pair<tour*, tour*> selectParent(int poolSize);
 
     void shuffleCities(std::vector<city*>& t);
 
