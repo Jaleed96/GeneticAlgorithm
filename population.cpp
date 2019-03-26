@@ -1,7 +1,7 @@
 //
 // Created by jay on 17/03/19.
 //
-constexpr int PARENT_POOL_SIZE = 5;
+constexpr int PARENT_POOL_SIZE = 15;
 constexpr int CITIES_IN_TOUR = 32;
 #include "population.hpp"
 #include <random>
@@ -54,7 +54,7 @@ tour* population::determineElite() {
 pair<tour*, tour*> population::selectParent(int poolSize) {
     vector<tour*> parentPool;
     srand((int) time(0));
-    for (int i = 0; i<PARENT_POOL_SIZE; i++) {
+    for (int i = 1; i<PARENT_POOL_SIZE; i++) {
         int index = rand()%31;
         parentPool.push_back(&(listOfTours[index]));
     }
@@ -65,7 +65,7 @@ pair<tour*, tour*> population::selectParent(int poolSize) {
         }
     }
     parentPool.clear();
-    for (int i = 0; i<PARENT_POOL_SIZE; i++) {
+    for (int i = 1; i<PARENT_POOL_SIZE; i++) {
         int index = rand()%29;
         parentPool.push_back(&(listOfTours[index]));
     }

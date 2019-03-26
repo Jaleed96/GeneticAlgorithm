@@ -29,11 +29,11 @@ int main() {
     double baseRating = elite->getFitnessRating();
     int iterationsRan = 0;
 
-    while (elite->getFitnessRating()/baseRating < IMPROVEMENT_FACTOR && iterationsRan<ITERATIONS) {
+    while (100.0-(100*elite->getFitnessRating()/baseRating) < IMPROVEMENT_FACTOR && iterationsRan<ITERATIONS) {
         elite = middleEarth.determineElite();
         middleEarth.crossover();
         middleEarth.mutateTours();
-        cout<<iterationsRan<<endl;
+        cout<<"Iteration: "<<iterationsRan<< "; Current Elite Fitness: "<<elite->getFitnessRating()<< "; Improvement: "<<100.0-(100*elite->getFitnessRating()/baseRating)<<"%"<<endl;
         iterationsRan++;
     }
 
