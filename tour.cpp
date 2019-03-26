@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <cmath>
 
-constexpr int MUTATION_RATE = 100;
+constexpr int MUTATION_RATE = 15;
 using namespace std;
 
 tour::tour(std::vector<city*> listOfCities) {

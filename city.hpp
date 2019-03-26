@@ -13,7 +13,7 @@ private:
     int x;
     int y;
 public:
-    city(std::string name, int xCoord, int yCoord);
+    city(std::string& name, int xCoord, int yCoord);
 
     std::string getName() const;
 

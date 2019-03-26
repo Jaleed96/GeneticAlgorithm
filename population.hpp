@@ -16,7 +16,7 @@ private:
     std::vector<tour> listOfTours;
     tour* eliteTour;
 public:
-    population(std::vector<city> masterList);
+    population(std::vector<city>& masterList);
 
     tour* determineElite();
 

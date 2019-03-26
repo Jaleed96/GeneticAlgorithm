@@ -7,12 +7,13 @@ constexpr int CITIES_IN_TOUR = 32;
 #include <random>
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
 auto generator = default_random_engine {};
 
-population::population(std::vector<city> masterList) {
+population::population(std::vector<city>& masterList) {
     vector<city*> ptrToMList;
     for(int i = 0; i<masterList.size(); i++) {
         ptrToMList.push_back(&(masterList[i]));
@@ -58,7 +59,7 @@ pair<tour*, tour*> population::selectParent(int poolSize) {
         parentPool.push_back(&(listOfTours[index]));
     }
     tour* parent1 = parentPool[0];
-    for (int i = 1; i<parentPool.size(); i++) {
+    for (int i = 0; i<parentPool.size(); i++) {
         if (parentPool[i]->getFitnessRating()<parent1->getFitnessRating()) {
             parent1 = parentPool[i];
         }
@@ -69,7 +70,7 @@ pair<tour*, tour*> population::selectParent(int poolSize) {
         parentPool.push_back(&(listOfTours[index]));
     }
     tour* parent2 = parentPool[0];
-    for (int i = 1; i<parentPool.size(); i++) {
+    for (int i = 0; i<parentPool.size(); i++) {
         if (parentPool[i]->getFitnessRating()<parent2->getFitnessRating()) {
             parent2 = parentPool[i];
         }

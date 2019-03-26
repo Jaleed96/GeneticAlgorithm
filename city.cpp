@@ -8,7 +8,7 @@
 
 using namespace std;
 
-city::city(std::string name, int xCoord, int yCoord) : name(name) {
+city::city(std::string& name, int xCoord, int yCoord) : name(name) {
     if (xCoord>1000 || xCoord<0) {
         cerr << "Please make sure X-Coordinate is between 0.0 and 1000.0";
         throw "CoordinateOutOfBoundsException";
