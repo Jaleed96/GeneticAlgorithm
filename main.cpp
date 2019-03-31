@@ -27,22 +27,26 @@ int main() {
     population middleEarth{list};
     tour* elite = middleEarth.determineElite();
     double baseRating = elite->getFitnessRating();
+    tour baseTour = elite->getTour();
     int iterationsRan = 0;
+    string improvementAchieved;
 
     while (100.0-(100*elite->getFitnessRating()/baseRating) < IMPROVEMENT_FACTOR && iterationsRan<ITERATIONS) {
         elite = middleEarth.determineElite();
+        improvementAchieved = 100.0-(100*elite->getFitnessRating()/baseRating) < IMPROVEMENT_FACTOR ? "no" : "yes";
         middleEarth.crossover();
         middleEarth.mutateTours();
-        cout<<"Iteration: "<<iterationsRan<< "; Current Elite Fitness: "<<elite->getFitnessRating()<< "; Improvement: "<<100.0-(100*elite->getFitnessRating()/baseRating)<<"%"<<endl;
+        cout<<"Iteration: "<<iterationsRan<<"; Base Distance: "<<baseRating<< "; Current Elite Distance: ";
+        cout<<elite->getFitnessRating()<<"; Improvement Achieved: "<<improvementAchieved<< "; Improvement: "<<100.0-(100*elite->getFitnessRating()/baseRating)<<"%"<<endl;
         iterationsRan++;
     }
 
-//    population basicPop{list};
-//    cout<<(basicPop.determineElite())->getFitnessRating()<<endl;
+    cout<<"==============RESULTS==============="<<endl;
+    cout<<"Number of iterations ran: "<<iterationsRan<<endl;
+    cout<<"Base distance: "<< baseRating<<"; Best distance: "<<elite->getFitnessRating()<<endl;
+    cout<<"Improvement achieved: "<<improvementAchieved<<endl;
+    cout<<"Base tour: "<<baseTour<<endl;
+    cout<<"Elite tour: "<<*elite<<endl;
 
-
-//    cout<<basicPop.getTours()[1].getFitnessRating()<<endl;
-//    basicPop.mutateTours();
-//    cout<<basicPop.getTours()[1].getFitnessRating()<<endl;
     return 0;
 }

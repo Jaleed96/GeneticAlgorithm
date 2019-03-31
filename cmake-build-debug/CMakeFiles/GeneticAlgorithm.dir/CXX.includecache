@@ -10,14 +10,20 @@
 sstream
 -
 
-/home/jay/CLionProjects/GeneticAlgorithm/population.cpp
+/home/jay/CLionProjects/GeneticAlgorithm/main.cpp
+iostream
+-
+tour.hpp
+/home/jay/CLionProjects/GeneticAlgorithm/tour.hpp
 population.hpp
 /home/jay/CLionProjects/GeneticAlgorithm/population.hpp
-random
--
-algorithm
+sstream
 -
 vector
+-
+city.hpp
+/home/jay/CLionProjects/GeneticAlgorithm/city.hpp
+cmath
 -
 iostream
 -
@@ -36,6 +42,8 @@ vector
 
 /home/jay/CLionProjects/GeneticAlgorithm/tour.hpp
 sstream
+-
+iostream
 -
 vector
 -

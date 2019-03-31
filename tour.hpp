@@ -6,6 +6,7 @@
 #define GENETICALGORITHM_TOUR_HPP
 
 #include <sstream>
+#include <iostream>
 #include <vector>
 #include "city.hpp"
 
@@ -31,6 +32,8 @@ public:
     double getTourDistance() const;
 
     void mutate();
+
+    friend std::ostream& operator<<(std::ostream& output, const tour& m);
 };
 
 

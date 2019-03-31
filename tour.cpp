@@ -65,3 +65,10 @@ void tour::mutate() {
         }
     }
 }
+
+ostream& operator<<(ostream& output, const tour& m) {
+    for (int i = 0; i<m.cityTour.size(); i++) {
+        output<<m.cityTour[i]->getName()<<", ";
+    }
+    return output;
+};
